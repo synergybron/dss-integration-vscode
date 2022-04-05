@@ -75,7 +75,8 @@ export function getWebApps(projectKey: string): Promise<WebAppDetails[]> {
 }
 
 export function getWebApp(webApp: WebAppDetails): Promise<WebApp> {
-    const endpoint = "/projects/" + webApp.projectKey + "/webapps/" + webApp.id + "/";
+    const new_webApp_id = webApp.id[0:11] + "_" + webApp.id[12:];
+    const endpoint = "/projects/" + webApp.projectKey + "/webapps/" + new_webApp_id + "/";
     return RequestWrapper.get(endpoint);
 }
 
