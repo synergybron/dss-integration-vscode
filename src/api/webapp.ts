@@ -80,7 +80,7 @@ export function getWebApp(webApp: WebAppDetails): Promise<WebApp> {
 }
 
 export function saveWebApp(webApp: WebApp): Promise<void> {
-    const new_webApp_id = webApp.id[0:11] + "_" + webApp.id[12:]
+    const new_webApp_id = webApp.id[0:11] + "_" + webApp.id[12:];
     const endpoint = "/projects/" + webApp.projectKey + "/webapps/" + new_webApp_id + "/";
     return RequestWrapper.put(endpoint, { body: webApp });
 }
